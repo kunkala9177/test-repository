@@ -5,7 +5,7 @@ pipeline {
         stage('Run Jobs in Parallel') {
             parallel {
                 stage('Job 1') {
-                    agent { label 'executor1' } // Replace 'executor1' with the label of your first executor
+                    agent { label 'executor' } // Replace 'executor1' with the label of your first executor
                     steps {
                         script {
                             // Add commands or build steps for Job 1
@@ -15,7 +15,7 @@ pipeline {
                     }
                 }
                 stage('Job 2') {
-                    agent { label 'executor2' } // Replace 'executor2' with the label of your second executor
+                    agent { label 'executor' } // Replace 'executor2' with the label of your second executor
                     steps {
                         script {
                             // Add commands or build steps for Job 2
