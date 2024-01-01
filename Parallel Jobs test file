@@ -24,6 +24,26 @@ pipeline {
                         }
                     }
                 }
+                stage('Job 3') {
+                    agent { label 'executor' } // Replace 'executor1' with the label of your first executor
+                    steps {
+                        script {
+                            // Add commands or build steps for Job 3
+                            echo 'Running Job 3'
+                            // Example: sh 'your-build-command-for-job-3'
+                        }
+                    }
+                }
+                stage('Job 4') {
+                    agent { label 'executor' } // Replace 'executor1' with the label of your first executor
+                    steps {
+                        script {
+                            // Add commands or build steps for Job 4
+                            echo 'Running Job 4'
+                            // Example: sh 'your-build-command-for-job-4'
+                        }
+                    }
+                }                
             }
         }
     }
