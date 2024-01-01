@@ -1,0 +1,30 @@
+pipeline {
+    agent none
+
+    stages {
+        stage('Run Jobs in Parallel') {
+            parallel {
+                stage('Job 1') {
+                    agent { label 'executor1' } // Replace 'executor1' with the label of your first executor
+                    steps {
+                        script {
+                            // Add commands or build steps for Job 1
+                            echo 'Running Job 1'
+                            // Example: sh 'your-build-command-for-job-1'
+                        }
+                    }
+                }
+                stage('Job 2') {
+                    agent { label 'executor2' } // Replace 'executor2' with the label of your second executor
+                    steps {
+                        script {
+                            // Add commands or build steps for Job 2
+                            echo 'Running Job 2'
+                            // Example: sh 'your-build-command-for-job-2'
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
